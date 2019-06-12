@@ -93,11 +93,13 @@ class GameInterface
             print "\n Choose a number: "
             move_x = gets.chomp().to_i
         end
-        choosen_coordinates = @current_player.our_hash[move_x]
+        choosen_coordinates = @board_this_game.our_hash[move_x]
         @current_player.player_action = choosen_coordinates
 
     end
 
+    private
+    
     def move_and_check
         print "\n"
         if @board_this_game.move(@current_player.player_action, @current_player.mark) == "fail"
@@ -221,7 +223,6 @@ class GameInterface
     end
 
 
-    private
     def winner_text(name)
       puts "\n"
       puts '*************************************************'
